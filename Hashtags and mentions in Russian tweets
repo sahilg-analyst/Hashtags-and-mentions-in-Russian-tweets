@@ -1,0 +1,16 @@
+# Function that returns number of hashtags in a string
+def count_hashtags(string):
+	# Split the string into words
+    words = string.split()
+    
+    # Create a list of words that are hashtags
+    hashtags = [word for word in words if word.startswith('#')]
+    
+    # Return number of hashtags
+    return(len(hashtags))
+
+# Create a feature hashtag_count and display distribution
+tweets['hashtag_count'] = tweets['content'].apply(count_hashtags)
+tweets['hashtag_count'].hist()
+plt.title('Hashtag count distribution')
+plt.show()
